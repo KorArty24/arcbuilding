@@ -36,6 +36,7 @@ namespace WindowsFormsApp1.TArc
             DrawInnerArc();
             CreateUpperChord();
             CreateLowerChord();
+            CreateWeb();
 
             void DrawUpperArc()
             {
@@ -73,12 +74,21 @@ namespace WindowsFormsApp1.TArc
 
             void CreateLowerChord() 
             {
-                var upperChord = SectionedBeam.CreateUpperChordBeam();
+                var lowerChord = SectionedBeam.CreateUpperChordBeam();
                 for (int i = 0; i < innerPoints.Count-1; i++) 
                 {
-                    upperChord.StartPoint = innerPoints[i];
-                    upperChord.EndPoint = innerPoints[i + 1];
-                    upperChord.Insert();
+                    lowerChord.StartPoint = innerPoints[i];
+                    lowerChord.EndPoint = innerPoints[i + 1];
+                    lowerChord.Insert();
+                }
+            }
+            void CreateWeb()
+            {
+                var web =  SectionedBeam.CreateUpperChordBeam();
+                for (int i=0; i < innerPoints.Count-1; i++) 
+                {
+                    web.StartPoint = pointsUpper[i];
+                    web.EndPoint = innerPoints[i];
                 }
             }
         }
