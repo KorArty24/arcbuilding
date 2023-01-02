@@ -72,7 +72,7 @@ namespace WindowsFormsApp1.TArc
             }
             void CreateLowerChord() 
             {
-                var lowerChord = SectionedBeam.CreateUpperChordBeam();
+                var lowerChord = SectionedBeam.CreateLowerChordBeam();
                 for (int i = 0; i < innerPoints.Count-1; i++) 
                 {
                     lowerChord.StartPoint = innerPoints[i];
@@ -82,11 +82,16 @@ namespace WindowsFormsApp1.TArc
             }
             void CreateWeb()
             {
-                var web =  SectionedBeam.CreateUpperChordBeam();
+                var webEven =  SectionedBeam.CreateWeb();
+                var webOdd = SectionedBeam.CreateWeb();
+
                 for (int i=0; i < innerPoints.Count-1; i++) 
                 {
-                    web.StartPoint = pointsUpper[i];
-                    web.EndPoint = innerPoints[i];
+                    webOdd.StartPoint = pointsUpper[i];
+                    webOdd.EndPoint = innerPoints[i];
+
+                    webEven.StartPoint = innerPoints[i];
+                    webEven.EndPoint = pointsUpper[i+1];
                 }
             }
         }
