@@ -46,6 +46,7 @@ namespace WindowsFormsApp1
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 arc.BuildArc(_dto);
+                myModel.CommitChanges();
             }
         }
 

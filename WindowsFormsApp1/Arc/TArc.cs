@@ -25,7 +25,6 @@ namespace WindowsFormsApp1.Arc
             double radiusX = dto.span/2;
             //gets the center of the arc B(a, r) where a is the center, r - radius
             (double x, double y) center = (span * 0.5, height - radiusY);
-            var centerpoint = new Point(center.x, center.y);
             //Central angle. Is set to 180 deg (PI)
             const double  centralAngle = 180;
             // Calculates the sector angle (180/6 = 30)
@@ -42,12 +41,12 @@ namespace WindowsFormsApp1.Arc
             void DrawUpperArc()
             {
                 int endAngle =0; //Deg
-                    for (double i= startAngle; i< endAngle; i = i - stepsize)
+                    for (double i= startAngle; i> endAngle; i = i - stepsize)
                     {
                         /*Calculates points according to x = r cos(\fi)  y = r cos(\fi) */
                         double coordX = radiusX * Math.Cos(Trigonometry.ToRadians(i));
                         double coordY = radiusY * Math.Sin(Trigonometry.ToRadians(i));
-                        pointsUpper.Add(new Point(coordX, coordY));
+                        pointsUpper.Add(new Point(coordX, 1000, coordY));
                     }
             }
             void DrawInnerArc () 
@@ -56,11 +55,11 @@ namespace WindowsFormsApp1.Arc
                 double endAngle = stepsize / 2;
                 double radiusX_inner = radiusX - offset;
                 double radiusY_inner = radiusY - offset;
-                for (double i = startAngleInner; i < endAngle; i = i - stepsize) 
+                for (double i = startAngleInner; i > endAngle; i = i - stepsize) 
                 {
                     double coordX = radiusX_inner * Math.Cos(Trigonometry.ToRadians(i));
                     double coordY = radiusY_inner * Math.Sin(Trigonometry.ToRadians(i));
-                    innerPoints.Add(new Point(coordX, coordY));
+                    innerPoints.Add(new Point(coordX, 1000, coordY));
                 }
             }
             void CreateUpperChord()

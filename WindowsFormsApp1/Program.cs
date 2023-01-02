@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Arc;
 
 namespace WindowsFormsApp1
 {
@@ -14,9 +15,11 @@ namespace WindowsFormsApp1
         [STAThread]
         static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            ArcDTO dto = new ArcDTO();
+            Application.Run(new Form1(dto));
         }
     }
 }
