@@ -45,6 +45,7 @@ namespace WindowsFormsApp1
                     MessageBox.Show("Error! Please check the input format.", "Oops!", 
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                arc.BuildArc(_dto);
                 
             }
         }
