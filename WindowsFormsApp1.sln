@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{79FC5922-B846-405B-BB90-50F1886FCD47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcBuilding.Test", "ArcBuilding.Test\ArcBuilding.Test.csproj", "{8E65AED2-C627-4856-B27A-D0EC74378B0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArcBuilding.Test", "ArcBuilding.Test\ArcBuilding.Test.csproj", "{8E65AED2-C627-4856-B27A-D0EC74378B0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
