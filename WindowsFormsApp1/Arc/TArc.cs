@@ -87,11 +87,14 @@ namespace WindowsFormsApp1.TArc
 
                 for (int i=0; i < innerPoints.Count-1; i++) 
                 {
+                    // Inserts web [inner[0], upper[0]]
                     webOdd.StartPoint = pointsUpper[i];
                     webOdd.EndPoint = innerPoints[i];
-
+                    webOdd.Insert();
+                    //Inserts web tie [inner[0], upper[1]]
                     webEven.StartPoint = innerPoints[i];
                     webEven.EndPoint = pointsUpper[i+1];
+                    webEven.Insert();
                 }
             }
         }
