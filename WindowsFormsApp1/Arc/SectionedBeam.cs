@@ -32,7 +32,17 @@ namespace WindowsFormsApp1.Arc
             Beam web_tie = new Beam(Beam.BeamTypeEnum.BEAM);
             web_tie.Material.MaterialString = "S255";
             web_tie.Profile.ProfileString = "HEA100";
-            web_tie.Class = "4";
+            web_tie.Class = "11";
+            
+            return web_tie;
+         }
+        public static Beam CreateInnerOuterTies() 
+         {
+            Beam web_tie = new Beam(Beam.BeamTypeEnum.BEAM);
+            web_tie.Material.MaterialString = "S255";
+            web_tie.Profile.ProfileString = "HEA300";
+            web_tie.Class = "12";
+            
             return web_tie;
          }
     }

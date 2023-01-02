@@ -37,6 +37,7 @@ namespace WindowsFormsApp1.Arc
             CreateUpperChord();
             CreateLowerChord();
             CreateWeb();
+            CreateLoweTies();
 
             void DrawUpperArc()
             {
@@ -86,18 +87,39 @@ namespace WindowsFormsApp1.Arc
             {
                 var webEven =  SectionedBeam.CreateWeb();
                 var webOdd = SectionedBeam.CreateWeb();
-
-                for (int i=0; i < innerPoints.Count-1; i++) 
+                List<Beam> lstEven = new List<Beam>(); // for debug purposes
+                List<Beam> lstodd = new List<Beam>(); // for debug purposes
+                for (int i=1; i < innerPoints.Count; i++) 
                 {
                     // Inserts web [inner[0], upper[0]]
                     webOdd.StartPoint = pointsUpper[i];
                     webOdd.EndPoint = innerPoints[i];
+                    lstodd.Add(webOdd);
                     webOdd.Insert();
                     //Inserts web tie [inner[0], upper[1]]
+                    
+                }
+                for (int i = 0; i < innerPoints.Count-1; i++) 
+                {
                     webEven.StartPoint = innerPoints[i];
                     webEven.EndPoint = pointsUpper[i+1];
+                    lstEven.Add(webOdd);
                     webEven.Insert();
                 }
+            }
+
+            void CreateLoweTies() 
+            {
+                var tie = SectionedBeam.CreateInnerOuterTies();
+                for (int i =0; i< innerPoints.Count; i = i + innerPoints.Count())
+                {
+                    tie.StartPoint = innerPoints[i];
+                    tie.EndPoint = pointsUpper[i];
+                    tie.Insert();
+                }
+                tie.StartPoint = innerPoints[innerPoints.Count()-1];
+                tie.EndPoint = pointsUpper[pointsUpper.Count()-1];
+                tie.Insert();
             }
         }
     }
