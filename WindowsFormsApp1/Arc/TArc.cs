@@ -60,7 +60,6 @@ namespace WindowsFormsApp1.TArc
                     innerPoints.Add(new Point(coordX, coordY));
                 }
             }
-
             void CreateUpperChord()
             {
                 var upperChord = SectionedBeam.CreateUpperChordBeam();
@@ -71,7 +70,6 @@ namespace WindowsFormsApp1.TArc
                     upperChord.Insert();
                 }
             }
-
             void CreateLowerChord() 
             {
                 var lowerChord = SectionedBeam.CreateUpperChordBeam();
