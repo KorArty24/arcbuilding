@@ -41,7 +41,7 @@ namespace WindowsFormsApp1.Arc
             void DrawUpperArc()
             {
                 int endAngle =0; //Deg
-                    for (double i= startAngle; i> endAngle; i = i - stepsize)
+                    for (double i= startAngle; i>= endAngle; i = i - stepsize)
                     {
                         /*Calculates points according to x = r cos(\fi)  y = r cos(\fi) */
                         double coordX = radiusX * Math.Cos(Trigonometry.ToRadians(i));
@@ -55,7 +55,7 @@ namespace WindowsFormsApp1.Arc
                 double endAngle = stepsize / 2;
                 double radiusX_inner = radiusX - offset;
                 double radiusY_inner = radiusY - offset;
-                for (double i = startAngleInner; i > endAngle; i = i - stepsize) 
+                for (double i = startAngleInner; i >= endAngle; i = i - stepsize) 
                 {
                     double coordX = radiusX_inner * Math.Cos(Trigonometry.ToRadians(i));
                     double coordY = radiusY_inner * Math.Sin(Trigonometry.ToRadians(i));
