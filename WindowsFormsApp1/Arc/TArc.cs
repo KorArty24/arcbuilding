@@ -11,14 +11,15 @@ using Point = Tekla.Structures.Geometry3d.Point;
 using WindowsFormsApp1.Arc;
 using Tekla.Structures.Model;
 
-namespace WindowsFormsApp1.TArc
+namespace WindowsFormsApp1.Arc
 {
-    internal class TArc
+    public class TArc
     {
         public void BuildArc(ArcDTO dto)
         {
             double height =dto.height;
             double span = dto.span;
+            double offset = dto.innerRadiusOffset;
             const int numPanels = 6; // temrprary for testing purposes
             double radiusY = height;
             double radiusX = dto.span/2;
@@ -53,10 +54,12 @@ namespace WindowsFormsApp1.TArc
             {
                 double startAngleInner = startAngle - stepsize/2;
                 double endAngle = stepsize / 2;
+                double radiusX_inner = radiusX - offset;
+                double radiusY_inner = radiusY - offset;
                 for (double i = startAngleInner; i < endAngle; i = i - stepsize) 
                 {
-                    double coordX = radiusX * Math.Cos(Trigonometry.ToRadians(i));
-                    double coordY = radiusY * Math.Sin(Trigonometry.ToRadians(i));
+                    double coordX = radiusX_inner * Math.Cos(Trigonometry.ToRadians(i));
+                    double coordY = radiusY_inner * Math.Sin(Trigonometry.ToRadians(i));
                     innerPoints.Add(new Point(coordX, coordY));
                 }
             }

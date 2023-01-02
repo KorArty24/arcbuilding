@@ -9,10 +9,8 @@ namespace WindowsFormsApp1.Arc
     public class ArcDTO
     {
         public double height { get; set; }
-        public double halfLength { get; set; }
         public double span { get; set; }
         public int numPanels { get; set; }
-        public double webLength { get; set; }
-        int offset { get; set; }
+        public double innerRadiusOffset { get; set; }
     }
 }
